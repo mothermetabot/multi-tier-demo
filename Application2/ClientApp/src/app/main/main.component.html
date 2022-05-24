@@ -1,0 +1,49 @@
+<h1>Netzsch Demo Application 2</h1>
+
+<div *ngIf="isConnected; else notConnected"
+     class="wrapper">
+  <div class="row wrapper">
+
+    <div class="col-sm-4 wrapper user-box">
+
+      <div class="list-group"
+            *ngFor="let user of users">
+
+        <div [class.dot]="user.hasNewMessage"></div>
+
+        <button [class.selected]="user === selectedUser"
+                (click)="onSelectedUser(user)"
+                type="button">
+          {{user.name}}
+        </button>
+    </div>
+  </div>
+
+      <!--input & output fields-->
+    <div class="col-sm-8">
+
+
+      <div *ngIf="selectedUser && users.length > 0">
+
+      <h2>Application 1: {{selectedUser.name}}</h2>
+
+
+        <label>Sent:</label>
+        <br />
+        <input [(ngModel)]="selectedUser.sentText" type="text"
+                (input)="onInputChanged($event)" />
+
+        <br />
+
+        <label>Received:</label>
+        <input [(ngModel)]="selectedUser.receivedText"
+                readonly />
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #notConnected>
+  <h1>Thanks for stopping by!</h1>
+  <p>Please wait a second while the connection is being established...</p>
+</ng-template>

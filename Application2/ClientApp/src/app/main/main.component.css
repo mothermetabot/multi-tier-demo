@@ -1,0 +1,28 @@
+.dot {
+  height: 15px;
+  width: 15px;
+  background-color: #00ff21;
+  border-radius: 50%;
+  z-index: 2;
+  position: relative;
+}
+
+button {
+  z-index: 1;
+  display: block;
+}
+
+.user-box {
+  border: groove;
+  display: block;
+  border-color: #5e5e5e;
+  min-height: 100% !important;
+  padding: 0px;
+}
+
+input {
+  margin: 25px;
+  width: 100%;
+  border-color: #5e5e5e;
+  color:inherit;
+}

@@ -1,0 +1,103 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* Provide sufficient contrast against white background */
+html, body, .wrapper {
+  height: 100%;
+  background-color: #1C1C1C;
+  color: #F7F9F9;
+}
+
+html, body {
+  width: 99%;
+}
+
+h1 {
+  margin-top: 2%;
+  margin-bottom: 2%;
+  font-size: 28px;
+  margin-left: 2%;
+}
+
+a {
+  color: #0366d6;
+}
+
+.code {
+  color: #e01a76;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+/* General button style */
+button {
+  border: none;
+  font-family: "Segoe UI";
+  color: inherit;
+  background: #1c1c1c;
+  cursor: pointer;
+  padding: 25px 80px;
+  display: inline-block;
+  letter-spacing: 1px;
+  font-weight: 500;
+  font-size: 24px;
+  width: 100%;
+  position: initial;
+  outline: groove;
+  outline-color: #5e5e5e;
+  -webkit-transition: all 0 3s;
+  -moz-transition: all 0 3s;
+  transition: all 0 3s;
+}
+
+  button:after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    -webkit-transition: all 0 3s;
+    -moz-transition: all 0 3s;
+    transition: all 0 3s;
+  }
+
+  /* Pseudo elements for icons */
+  button:before {
+    font-family: 'FontAwesome';
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    position: relative;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  button:hover {
+    background: #2980b9;
+  }
+
+  button:active {
+    background: #2980b9;
+    top: 2px;
+  }
+
+  button:before {
+    position: absolute;
+    height: 100%;
+    left: 0;
+    top: 0;
+    line-height: 3;
+    font-size: 140%;
+    width: 60px;
+  }
+
+.selected {
+  background: #1B9AAA;
+}
+
+input {
+  background-color: #2b2b2b;
+}

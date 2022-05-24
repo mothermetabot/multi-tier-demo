@@ -1,0 +1,35 @@
+﻿<Window x:Class="Application1.MainWindow.MainView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+        xmlns:mainwindow="clr-namespace:Application1.MainWindow"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="400"
+        IsEnabled="{Binding IsConnected}"
+        d:DataContext="{d:DesignInstance mainwindow:MainViewModel, IsDesignTimeCreatable=True}">
+
+    <Window.Resources>
+
+    </Window.Resources>
+    
+    
+    <StackPanel VerticalAlignment="Center">
+
+        <TextBlock Text="Received Message"/>
+        <!-- RECEIVED TEXT -->
+
+        <Border BorderBrush="Black"
+                BorderThickness="0.5"
+                Margin="15,5"
+                Padding="4,2">            
+            <TextBlock Text="{Binding Path=ReceivedText, Mode=TwoWay}"
+                       Margin="0"/>
+        </Border>
+
+        <TextBlock Text="Sent Message"/>
+        <!-- SENT TEXT -->
+        <TextBox x:Name="_sendBox"/>    
+        
+    </StackPanel>
+</Window>
