@@ -1,18 +1,21 @@
 import { Observable, Subject } from "rxjs";
 import { UserMessage } from "../Models/user-message.dto";
 import { RealTimeService } from "./real-time.service";
-import { HttpTransportType, HubConnection, HubConnectionBuilder, HubConnectionState } from "@microsoft/signalr";
+import { HubConnection, HubConnectionBuilder, HubConnectionState } from "@microsoft/signalr";
 import { NAME_QUERY_KEY } from "../constants/server.constants";
 import { RECEIVE_USER_ACTIVITY, RECEIVE_BROADCAST, SEND_MESSAGE, GET_USERS } from "../constants/method.constants";
 import { UserActivity } from "../Models/user-activity.dto";
 import { User } from "../Models/user.dto";
+import { environment } from '../../environments/environment';
 
 export class SignalrRealTimeService implements RealTimeService {
 
   constructor() {
 
-    let url = "http://localhost:5000/main?" + NAME_QUERY_KEY + "=admin";
-    console.log(url)
+    let base = environment.serviceUrl;
+    let url = base + "?" + NAME_QUERY_KEY + "=admin";
+
+    console.log("Attempting to connect to real-time service under " + url);
 
     this.hubConnection = new HubConnectionBuilder()
       .withUrl(url)
