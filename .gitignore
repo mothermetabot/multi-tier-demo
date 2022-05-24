@@ -404,14 +404,14 @@ FodyWeavers.xsd
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
 # compiled output
-dist
-tmp
-out-tsc
+/Application2/ClientApp/dist
+/Application2/ClientApp/tmp
+/Application2/ClientApp/out-tsc
 # Only exists if Bazel was run
 /bazel-out
 
 # dependencies
-/node_modules
+/Application2/ClientApp/node_modules
 
 # profiling files
 chrome-profiler-events*.json
@@ -434,11 +434,11 @@ chrome-profiler-events*.json
 .history/*
 
 # misc
-.angular/cache
-.sass-cache
-connect.lock
-coverage
-libpeerconnection.log
+/Application2/ClientApp/.angular/cache
+/Application2/ClientApp/.sass-cache
+/Application2/ClientApp/connect.lock
+/Application2/ClientApp/coverage
+/Application2/ClientApp/libpeerconnection.log
 npm-debug.log
 yarn-error.log
 testem.log
