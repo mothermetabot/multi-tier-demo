@@ -47,7 +47,7 @@ namespace Tests.UnitTests.Application1
 
             _viewModel.Name = "name";
             await _viewModel.OnConnect();
-            _mockNavigator.Verify(n => n.NavigateTo<MainViewModel>(), Times.Once);
+            _mockNavigator.Verify(n => n.NavigateTo<MainViewModel>(null), Times.Once);
         }
 
         [Test]

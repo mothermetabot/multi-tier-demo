@@ -8,8 +8,8 @@ namespace Application1.Services
 
         void MessageBox(string message);
 
-        void NavigateTo<TViewModel>() where TViewModel : ViewModelBase;
+        void NavigateTo<TViewModel>(object? parameter = null) where TViewModel : ViewModelBase;
 
-        void NavigateTo(Type t);
+        void NavigateTo(Type t, object? parameter = null);
     }
 }

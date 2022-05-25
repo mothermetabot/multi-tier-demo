@@ -8,7 +8,7 @@ namespace Application1.Services
 
         void Hide();
 
-        void Show();
+        void Show(object? parameter = null);
 
         event Action<IView>? Shutdown;
     }

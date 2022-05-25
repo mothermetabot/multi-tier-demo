@@ -52,8 +52,21 @@ namespace Tests.UnitTests.Application1
             _navigator.NavigateTo<ViewModelBase>();
             _navigator.NavigateTo<ViewModelBase>();
 
-            _mockView.Verify(view => view.Show(), Times.Exactly(2));
+            _mockView.Verify(view => view.Show(null), Times.Exactly(2));
             _mockView.Verify(view => view.Hide(), Times.Once);
+        }
+
+        [Test]
+        public void NavigateTo_RelaysParameterToView()
+        {
+            var obj = new object();
+
+            _navigator.RegisterView(_mockView.Object);
+            _navigator.NavigateTo<ViewModelBase>(obj);
+
+            _mockView.Verify(view => 
+                view.Show(It.Is<object>(param => ReferenceEquals(obj, param))), 
+                Times.Once);
         }
 
         [Test]

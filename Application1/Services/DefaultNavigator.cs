@@ -26,12 +26,12 @@ namespace Application1.Services
 
         public IView? CurrentView { get; private set; }
 
-        public void NavigateTo<Tto>() where Tto : ViewModelBase
+        public void NavigateTo<Tto>(object? parameter = null) where Tto : ViewModelBase
         {
-            NavigateTo(typeof(Tto));
+            NavigateTo(typeof(Tto), parameter);
         }
 
-        public void NavigateTo(Type t)
+        public void NavigateTo(Type t, object? parameter = null)
         {
             if (!t.IsAssignableTo(typeof(ViewModelBase)))
                 throw new InvalidOperationException("The specified type is not of " + typeof(ViewModelBase));
@@ -40,7 +40,7 @@ namespace Application1.Services
 
             _dispatcher.Invoke(() => {
 
-                toView.Show();
+                toView.Show(parameter);
                 CurrentView?.Hide();
 
                 CurrentView = toView;

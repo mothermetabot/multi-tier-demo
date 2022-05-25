@@ -54,13 +54,13 @@ namespace Tests.UnitTests.Application1
 
             // navigates back to connection view
             _hubConnectionStateSubject.OnNext(HubConnectionState.Disconnected);
-            _mockNavigator.Verify(m => m.NavigateTo<ConnectionViewModel>());
+            _mockNavigator.Verify(m => m.NavigateTo<ConnectionViewModel>(null));
             Assert.IsFalse(_viewModel.IsConnected);
 
 
             // displays message box and navigates back
             _hubConnectionStateSubject.OnError(new System.Exception());
-            _mockNavigator.Verify(m => m.NavigateTo<ConnectionViewModel>());
+            _mockNavigator.Verify(m => m.NavigateTo<ConnectionViewModel>(null));
 
             _mockNavigator.Verify(m => m.MessageBox(It.IsAny<string>()));
 
