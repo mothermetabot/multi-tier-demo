@@ -9,23 +9,22 @@
       <div class="list-group"
             *ngFor="let user of users">
 
-        <div [class.dot]="user.hasNewMessage"></div>
+        <div *ngIf="user.hasNewMessage"
+             class="dot"></div>
 
         <button [class.selected]="user === selectedUser"
                 (click)="onSelectedUser(user)"
                 type="button">
           {{user.name}}
         </button>
+      </div>
     </div>
-  </div>
 
       <!--input & output fields-->
     <div class="col-sm-8">
 
 
       <div *ngIf="selectedUser && users.length > 0">
-
-      <h2>Application 1: {{selectedUser.name}}</h2>
 
 
         <label>Sent:</label>
