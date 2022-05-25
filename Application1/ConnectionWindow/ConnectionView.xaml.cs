@@ -18,5 +18,10 @@ namespace Application1.ConnectionWindow
         public ConnectionViewModel ViewModel { get; }
 
         public event Action<IView>? Shutdown;
+
+        public void Show(object? parameter = null)
+        {
+            base.Show();
+        }
     }
 }

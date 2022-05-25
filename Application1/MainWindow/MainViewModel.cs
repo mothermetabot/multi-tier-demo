@@ -49,6 +49,12 @@ namespace Application1.MainWindow
         }
         private bool _isConnected = false;
 
+        public string? Name {
+            get => _name;
+            set => Set(nameof(Name), ref _name, value);
+        }
+        private string? _name;
+
         public async void NotifyAndForget(string content)
         {
             try {

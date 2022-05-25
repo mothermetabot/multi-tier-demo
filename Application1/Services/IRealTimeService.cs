@@ -6,6 +6,7 @@ namespace Application1.Services
 {
     public interface IRealTimeService : IAsyncDisposable
     {
+        string Name { get; set; }
 
         IObservable<string> MessageObservable { get; }
 

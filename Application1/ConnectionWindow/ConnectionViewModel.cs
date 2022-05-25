@@ -60,7 +60,7 @@ namespace Application1.ConnectionWindow
                     _connectionDisposable?.Dispose();
 
                     if (state == HubConnectionState.Connected) {
-                        _navigator.NavigateTo<MainViewModel>();
+                        _navigator.NavigateTo<MainViewModel>(_realTimeService.Name);
                         return;
                     }
 
@@ -74,6 +74,7 @@ namespace Application1.ConnectionWindow
                     IsEnabled = true;
                 });
 
+            _realTimeService.Name = Name;
 
             var url = UrlHelper.BuildUrl(Constant.REAL_TIME_SERVICE_URI, Name);
             return _realTimeService.Connect(url);

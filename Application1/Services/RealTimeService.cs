@@ -19,6 +19,9 @@ namespace Application1.Services
 
         public IObservable<string> MessageObservable => _messageSubject;
 
+        public string Name { get; set; }
+
+
         private readonly ISubject<string> _messageSubject = new Subject<string>();
 
         private readonly IHubProxy _proxy;

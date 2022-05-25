@@ -26,6 +26,14 @@ namespace Application1.MainWindow
             Closing += (s, e) => Shutdown?.Invoke(this);
         }
 
+        public void Show(object? parameter = null)
+        {
+            if(parameter is string name)
+                ViewModel.Name = name;
+
+            base.Show();
+        }
+
         public MainViewModel ViewModel { get; }
 
         public event Action<IView>? Shutdown;
