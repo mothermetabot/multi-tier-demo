@@ -5,31 +5,40 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
         xmlns:mainwindow="clr-namespace:Application1.MainWindow"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="400"
+        WindowStyle="ToolWindow"
+        Title="Application 1" Height="450" Width="400"
         IsEnabled="{Binding IsConnected}"
         d:DataContext="{d:DesignInstance mainwindow:MainViewModel, IsDesignTimeCreatable=True}">
 
-    <Window.Resources>
+    <Grid>
 
-    </Window.Resources>
-    
-    
-    <StackPanel VerticalAlignment="Center">
+        <TextBlock Text="Application 1"
+                   FontSize="28"
+                   Margin="15"/>
 
-        <TextBlock Text="Received Message"/>
-        <!-- RECEIVED TEXT -->
+        <StackPanel VerticalAlignment="Center">
 
-        <Border BorderBrush="Black"
-                BorderThickness="0.5"
+            <TextBlock Text="Output"/>
+            <!-- RECEIVED TEXT -->
+
+            <Border BorderBrush="Black"
+                BorderThickness="0.3"
+                MinHeight="40"
                 Margin="15,5"
-                Padding="4,2">            
-            <TextBlock Text="{Binding Path=ReceivedText, Mode=TwoWay}"
-                       Margin="0"/>
-        </Border>
+                Padding="4,2">
 
-        <TextBlock Text="Sent Message"/>
-        <!-- SENT TEXT -->
-        <TextBox x:Name="_sendBox"/>    
-        
-    </StackPanel>
+                <ScrollViewer HorizontalScrollBarVisibility="Disabled"
+                          VerticalScrollBarVisibility="Auto">
+                    <TextBlock Text="{Binding Path=ReceivedText, Mode=TwoWay}"
+                           TextWrapping="Wrap"                       
+                           Margin="0"/>
+                </ScrollViewer>
+            </Border>
+
+            <TextBlock Text="Input"/>
+            <!-- SENT TEXT -->
+            <TextBox x:Name="_sendBox"/>
+
+        </StackPanel>
+    </Grid>
 </Window>

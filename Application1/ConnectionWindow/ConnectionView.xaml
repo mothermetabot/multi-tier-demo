@@ -5,16 +5,22 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:connectionwindow="clr-namespace:Application1.ConnectionWindow"
         mc:Ignorable="d"
-        Title="ConnectionView" Height="300" Width="250"
+        WindowStyle="ToolWindow"
+        Title="Application 1" Height="300" Width="250"
         d:DataContext="{d:DesignInstance connectionwindow:ConnectionViewModel, IsDesignTimeCreatable=True}">
-    <StackPanel>
-        
-        <TextBlock Text="Enter name"/>
-        <TextBox Text="{Binding Name, Mode=OneWayToSource}"
-                 MaxLength="50"/>
 
+
+    <Grid>
+        <StackPanel VerticalAlignment="Top">
+            <TextBlock Text="Enter a name"
+                       Style="{StaticResource Header2}"/>
+            <TextBox Text="{Binding Name, Mode=OneWayToSource}"
+                     Style="{StaticResource Form}"
+                     MaxLength="50"/>
+
+        </StackPanel>
         <Button Command="{Binding ConnectCommand}"
-                Content="Connect"/>
-
-    </StackPanel>
+                    VerticalAlignment="Bottom"
+                    Content="Connect"/>
+    </Grid>
 </Window>
