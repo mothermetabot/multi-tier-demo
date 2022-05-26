@@ -31,6 +31,8 @@
 		<None Remove="ClientApp\src\app\Models\user.model.ts" />
 		<None Remove="ClientApp\src\app\real-time.service.ts" />
 		<None Remove="ClientApp\src\app\services\mock.real-time.service.ts" />
+		<None Remove="ClientApp\src\app\services\real-time-service.provider.ts" />
+		<None Remove="ClientApp\src\app\services\signalr.real-time.service.spec.ts" />
 		<None Remove="ClientApp\src\app\services\signalr.real-time.service.ts" />
 	</ItemGroup>
 
@@ -47,8 +49,10 @@
 		<TypeScriptCompile Include="ClientApp\src\app\Models\user-message.dto.ts" />
 		<TypeScriptCompile Include="ClientApp\src\app\Models\user.dto.ts" />
 		<TypeScriptCompile Include="ClientApp\src\app\Models\user.model.ts" />
+		<TypeScriptCompile Include="ClientApp\src\app\services\real-time-service.provider.ts" />
 		<TypeScriptCompile Include="ClientApp\src\app\services\mock.real-time.service.ts" />
 		<TypeScriptCompile Include="ClientApp\src\app\services\real-time.service.ts" />
+		<TypeScriptCompile Include="ClientApp\src\app\services\signalr.real-time.service.spec.ts" />
 		<TypeScriptCompile Include="ClientApp\src\app\services\signalr.real-time.service.ts" />
 	</ItemGroup>
 
@@ -56,8 +60,7 @@
 		<AngularDist Include="$(SolutionDir)Application2\ClientApp\dist\**" />
 	</ItemGroup>
 	<Target Name="CopyCustomContent" AfterTargets="AfterBuild">
-		<Copy SourceFiles="@(AngularDist)"
-			DestinationFolder="$(OutputDir)/dist" />
+		<Copy SourceFiles="@(AngularDist)" DestinationFolder="$(OutputDir)/dist" />
 	</Target>
 
 	<Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">

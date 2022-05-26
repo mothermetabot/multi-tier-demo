@@ -5,8 +5,8 @@ import { REAL_TIME_SERVICE } from '../constants/di-tokens.constants';
 import { UserActivity } from '../Models/user-activity.dto';
 import { UserMessage } from '../Models/user-message.dto';
 import { UserModel } from '../Models/user.model';
-import { RealTimeService } from '../services/real-time.service';
 import { CONNECTION_ACTIVITY, DISCONNECTION_ACTIVITY } from '../constants/server.constants';
+import { SignalrRealTimeService } from '../services/signalr.real-time.service';
 
 @Component({
   selector: 'app-main',
@@ -15,7 +15,7 @@ import { CONNECTION_ACTIVITY, DISCONNECTION_ACTIVITY } from '../constants/server
 })
 export class MainComponent implements OnInit {
 
-  constructor(@Inject(REAL_TIME_SERVICE) private realTimeService: RealTimeService) {
+  constructor(private realTimeService: SignalrRealTimeService) {
 
     this.realTimeService.connect()
       .then(() => this.onConnected(), (e: any) => this.onNotConnected(e))

@@ -6,22 +6,12 @@ import { NAME_QUERY_KEY } from "../constants/server.constants";
 import { RECEIVE_USER_ACTIVITY, RECEIVE_BROADCAST, SEND_MESSAGE, GET_USERS } from "../constants/method.constants";
 import { UserActivity } from "../Models/user-activity.dto";
 import { User } from "../Models/user.dto";
-import { environment } from '../../environments/environment';
+import { Injectable } from "@angular/core";
 
+@Injectable()
 export class SignalrRealTimeService implements RealTimeService {
 
-  constructor() {
-
-    let base = environment.serviceUrl;
-    let url = base + "?" + NAME_QUERY_KEY + "=admin";
-
-    console.log("Attempting to connect to real-time service under " + url);
-
-    this.hubConnection = new HubConnectionBuilder()
-      .withUrl(url)
-      .withAutomaticReconnect()
-      .build();
-  }
+  constructor(private hubConnection : HubConnection) {  }
 
   onclosed(closed: () => void): void {
     this.hubConnection.onclose(() => closed());
@@ -33,8 +23,6 @@ export class SignalrRealTimeService implements RealTimeService {
 
     return this.hubConnection.connectionId;
   }
-
-  private hubConnection: HubConnection;
 
   private userActivitySubject: Subject<UserActivity> = new Subject<UserActivity>();
 
