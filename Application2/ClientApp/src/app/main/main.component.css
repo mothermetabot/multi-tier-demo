@@ -1,15 +1,17 @@
 .dot {
   height: 15px;
   width: 15px;
-  background-color: #00ff21;
+  background-color: #6cc887;
   border-radius: 50%;
   z-index: 2;
-  position: inherit;
+  margin: 3px;
+  vertical-align: central;
+  align-self:end;
+  position: absolute;
 }
 
 button {
   z-index: 1;
-  display: block;
 }
 
 .user-box {
@@ -21,8 +23,15 @@ button {
 }
 
 input {
-  margin: 25px;
-  width: 100%;
+  margin-left: 20px;
+  margin-bottom: 25px;
+  width: 90%;
   border-color: #5e5e5e;
-  color:inherit;
+  color: inherit;
+}
+
+label {
+    margin-top:3px;
+    margin-left:20px;
+    margin-bottom:3px;
 }

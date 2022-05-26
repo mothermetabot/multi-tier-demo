@@ -1,16 +1,21 @@
 <h1>Netzsch Demo Application 2</h1>
 
+<hr class="solid">
+
 <div *ngIf="isConnected; else notConnected"
      class="wrapper">
+
   <div class="row wrapper">
 
-    <div class="col-sm-4 wrapper user-box">
+    <div class="col-sm-4 top-space">
 
-      <div class="list-group"
-            *ngFor="let user of users">
+      <div *ngFor="let user of users"
+           class="list-group">
 
-        <div *ngIf="user.hasNewMessage"
-             class="dot"></div>
+
+        <div [class.dot]="user.hasNewMessage"
+             data-toggle="tooltip" data-placement="top" title="Output Changed">
+        </div>
 
         <button [class.selected]="user === selectedUser"
                 (click)="onSelectedUser(user)"
@@ -20,23 +25,36 @@
       </div>
     </div>
 
-      <!--input & output fields-->
-    <div class="col-sm-8">
+    <div class="col-sm-1"
+         style="border-left: 1px solid #808080; height: 100%; width:1px;
+margin:0px;">
+
+
+    </div>
+
+    <!--input & output fields-->
+    <div class="col-sm-7 top-space">
 
 
       <div *ngIf="selectedUser && users.length > 0">
 
-
-        <label>Sent:</label>
-        <br />
-        <input [(ngModel)]="selectedUser.sentText" type="text"
-                (input)="onInputChanged($event)" />
+        <label>Output:</label>
 
         <br />
-
-        <label>Received:</label>
         <input [(ngModel)]="selectedUser.receivedText"
-                readonly />
+               readonly />
+
+        <br />
+        <br />
+
+        <label>Input:</label>
+
+        <br />
+
+        <input [(ngModel)]="selectedUser.sentText" type="text"
+               (input)="onInputChanged($event)" />
+
+
       </div>
     </div>
   </div>

@@ -36,6 +36,7 @@ export class MainComponent implements OnInit {
   }
 
   onSelectedUser(user: UserModel): void {
+
     user.hasNewMessage = false;
     this.selectedUser = user;
     console.log(user);
@@ -153,11 +154,9 @@ export class MainComponent implements OnInit {
           console.log("Received user message.");
 
           if (this.users.length == 0) {
-            console.log("Users collection was empty or ");
+            console.log("Users collection was empty");
             return;
           }
-          else if (this.selectedUser == null)
-            this.selectedUser = this.users[0];
 
           let sender = this.users
             .find(user => user.id === m.userId);
@@ -168,7 +167,7 @@ export class MainComponent implements OnInit {
           }
 
           if (sender != this.selectedUser)
-            this.selectedUser.hasNewMessage = true;
+            sender.hasNewMessage = true;
 
           sender.receivedText = m.content;
         },

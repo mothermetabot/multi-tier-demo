@@ -7,11 +7,8 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { MainComponent } from './main/main.component';
 import { SignalrRealTimeService } from './services/signalr.real-time.service';
-import { RealTimeService } from './services/real-time.service';
 import { HubConnection } from '@microsoft/signalr';
 import { hubConnectionFactory } from './services/real-time-service.provider';
-
-import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [

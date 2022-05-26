@@ -5,11 +5,17 @@ html, body, .wrapper {
   height: 100%;
   background-color: #1C1C1C;
   color: #F7F9F9;
-  font-size : 16px;
+  font-size: 16px;
+  font-family: "Segoe UI";
+  overflow-x:hidden; 
+}
+
+.top-space {
+  margin-top: 10px;
+  margin-left:10px;
 }
 
 html, body {
-  width: 99%;
 }
 
 h1 {
@@ -27,45 +33,45 @@ a {
   color: #e01a76;
 }
 
-.btn-primary {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
-}
-
 /* General button style */
 button {
-  border: none;
+    border:none;  
+  outline:groove;
+  outline-color:#3e3e3e;
+  outline-width: thin;
   font-family: "Segoe UI";
   color: inherit;
-  background: #1c1c1c;
+  background: #2b2b2b;
   cursor: pointer;
-  padding: 25px 80px;
+  padding: 25px;
   display: inline-block;
-  letter-spacing: 1px;
   font-weight: 500;
-  font-size: 24px;
-  width: 100%;
+  font-size: 20px;
   position: initial;
-  outline: groove;
-  outline-color: #5e5e5e;
+  text-align: start;
   -webkit-transition: all 0 3s;
   -moz-transition: all 0 3s;
   transition: all 0 3s;
 }
 
-  button:after {
-    content: '';
-    position: absolute;
-    z-index: -1;
-    -webkit-transition: all 0 3s;
-    -moz-transition: all 0 3s;
-    transition: all 0 3s;
-  }
+hr.solid {
+  border-bottom: 3px solid #bbb;
+  height:3px;
+  margin:0px;
+}
+
+button:after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  -webkit-transition: all 0 3s;
+  -moz-transition: all 0 3s;
+  transition: all 0 3s;
+}
 
   /* Pseudo elements for icons */
   button:before {
-    font-family: 'FontAwesome';
+    font-family: 'Segoe UI';
     speak: none;
     font-style: normal;
     font-weight: normal;
@@ -77,12 +83,12 @@ button {
   }
 
   button:hover {
-    background: #2980b9;
+    background: #242425;
   }
 
   button:active {
-    background: #2980b9;
-    top: 2px;
+
+    background: #202021;
   }
 
   button:before {
@@ -96,7 +102,7 @@ button {
   }
 
 .selected {
-  background: #1B9AAA;
+  background: #222222;
 }
 
 input {
