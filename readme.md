@@ -1,5 +1,10 @@
-# Build instructions
+# Purpose
+This project is a small multi-tier system that contains a web service, a web app and a desktop app.
+The web app (Application 2) represents an admin that can see the connection status of the different clients (Application 1) and receives messages from them.
 
+It's purpose is to demonstrate, test and learn the implemented technologies.
+
+# Build instructions
 ### Requirements:
 - [Node.js](https://nodejs.org/en/download/) v16.14.2 or higher
 - [.Net SDK](https://dotnet.microsoft.com/en-us/download/dotnet/6.0) v6.0.300 or higher
